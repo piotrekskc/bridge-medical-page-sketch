@@ -1,19 +1,15 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import logo from "../assets/logo.png";
 
 interface NavigationProps {
   currentPage: string;
   onPageChange: (page: string) => void;
 }
 
-export function Navigation({
-  currentPage,
-  onPageChange,
-}: NavigationProps) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] =
-    useState(false);
+export function Navigation({ currentPage, onPageChange }: NavigationProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { id: "home", label: "Home" },
@@ -33,10 +29,7 @@ export function Navigation({
             className="flex-shrink-0 cursor-pointer"
             onClick={() => onPageChange("home")}
           >
-          <svg width="300" height="100">
-          
-          </svg>
-
+            <img src={logo} alt="Logo" className="h-10 w-auto mr-2" />
           </div>
 
           {/* Desktop Navigation */}
@@ -63,15 +56,9 @@ export function Navigation({
             <Button
               variant="ghost"
               size="sm"
-              onClick={() =>
-                setIsMobileMenuOpen(!isMobileMenuOpen)
-              }
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? (
-                <X size={24} />
-              ) : (
-                <Menu size={24} />
-              )}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
           </div>
         </div>
