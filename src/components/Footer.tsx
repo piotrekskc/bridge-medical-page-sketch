@@ -50,12 +50,11 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2 text-gray-300 text-sm">
-              <li>Clinical Study Management</li>
-              <li>Regulatory Support</li>
-              <li>Legal EU Representation</li>
+              <li>Trial Management</li>
               <li>Data Management</li>
-              <li>CE Marking Support</li>
-              <li>Commercialization Support</li>
+              <li>CE Marking and Commercialization Support</li>
+              <li>Trial Material and Records</li>
+              <li>Regulatory Support and Legal EU Representation</li>
             </ul>
           </div>
         </div>
