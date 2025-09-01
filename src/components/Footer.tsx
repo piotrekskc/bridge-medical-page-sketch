@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -9,12 +9,11 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Bridge Medical</h3>
             <p className="text-gray-300 mb-4">
-              Your foundation in Eastern and Western Europe for clinical evaluation, 
-              legal compliance, reimbursement, and market introduction.
+              Your foundation in Eastern and Western Europe for clinical
+              evaluation, legal compliance, reimbursement, and market
+              introduction.
             </p>
-            <p className="text-gray-300 text-sm">
-              NIP: 5213428629
-            </p>
+            <p className="text-gray-300 text-sm">NIP: 5213428629</p>
           </div>
 
           {/* Contact Information */}
@@ -24,20 +23,24 @@ export function Footer() {
               <div className="flex items-center text-gray-300">
                 <MapPin size={16} className="mr-2 flex-shrink-0" />
                 <span className="text-sm">
-                  Willowa 8/10 Ste 18<br />
+                  Willowa 8/10 Ste 18
+                  <br />
                   00-790 Warsaw, Poland
                 </span>
               </div>
               <div className="flex items-center text-gray-300">
                 <Mail size={16} className="mr-2 flex-shrink-0" />
-                <a href="mailto:info@bridgemedical.pl" className="text-sm hover:text-blue-400 transition-colors">
+                <a
+                  href="mailto:info@bridgemedical.pl"
+                  className="text-sm hover:text-blue-400 transition-colors"
+                >
                   info@bridgemedical.pl
                 </a>
               </div>
               <div className="flex items-center text-gray-300">
                 <Phone size={16} className="mr-2 flex-shrink-0" />
                 <span className="text-sm">
-                  Joanna Baran: (+48) 731-854-458
+                  Joanna Mieteń: (+48) 731-854-458
                 </span>
               </div>
             </div>
@@ -59,7 +62,8 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            Copyright © Bridge Medical • Emerging Technologies • Emerging Markets
+            Copyright © Bridge Medical • Emerging Technologies • Emerging
+            Markets
           </p>
         </div>
       </div>
