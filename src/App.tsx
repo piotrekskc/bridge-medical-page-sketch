@@ -5,6 +5,9 @@ import { HomePage } from "./components/HomePage";
 import { ServicesPage } from "./components/ServicesPage";
 import { AboutPage } from "./components/AboutPage";
 import { ContactPage } from "./components/ContactPage";
+import { ClinicalResearchPolandPage } from "./components/ClinicalResearchPolandPage";
+import { PhasesClinicalResearchPage } from "./components/PhasesClinicalResearchPage";
+import { FAQPage } from "./components/FAQPage";
 import { BlogPage } from "./components/BlogPage";
 
 export default function App() {
@@ -22,6 +25,14 @@ export default function App() {
         return <ContactPage />;
       case "blog":
         return <BlogPage />;
+      case "partner-login":
+        return <HomePage onPageChange={setCurrentPage} />;
+      case "clinical-research-poland":
+        return <ClinicalResearchPolandPage />;
+      case "phases-clinical-research":
+        return <PhasesClinicalResearchPage />;
+      case "faq":
+        return <FAQPage />;
       default:
         return <HomePage onPageChange={setCurrentPage} />;
     }

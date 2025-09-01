@@ -1,10 +1,4 @@
-import {
-  ArrowRight,
-  Globe,
-  Users,
-  Shield,
-  Target,
-} from "lucide-react";
+import { ArrowRight, Globe, Users, Shield, Target } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
@@ -43,37 +37,34 @@ export function HomePage({ onPageChange }: HomePageProps) {
   return (
     <div className="space-y-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Your Bridge to European Medical Markets
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-              Bridge Medical is your foundation in Eastern and
-              Western Europe which will enable you to achieve
-              your goals of clinical evaluation, legal
-              compliance, reimbursement, and market
-              introduction.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100"
-                onClick={() => onPageChange("services")}
-              >
-                Our Services
-                <ArrowRight className="ml-2" size={20} />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-black hover:bg-white hover:text-blue-600"
-                onClick={() => onPageChange("contact")}
-              >
-                Contact Us
-              </Button>
-            </div>
+      <section className="relative bg-gradient-to-r from-primary to-primary/80 text-white py-16">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Your Bridge to European Medical Markets
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
+            Bridge Medical is your foundation in Eastern and Western Europe
+            which will enable you to achieve your goals of clinical evaluation,
+            legal compliance, reimbursement, and market introduction.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-white text-blue-600 hover:bg-gray-100"
+              onClick={() => onPageChange("services")}
+            >
+              Our Services
+              <ArrowRight className="ml-2" size={20} />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-blue-600 hover:bg-gray-100"
+              onClick={() => onPageChange("contact")}
+            >
+              Contact Us
+            </Button>
           </div>
         </div>
       </section>
@@ -85,8 +76,8 @@ export function HomePage({ onPageChange }: HomePageProps) {
             Why Choose Bridge Medical?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We bring technology, research, and capabilities to
-            the medical communities we serve across Europe.
+            We bring technology, research, and capabilities to the medical
+            communities we serve across Europe.
           </p>
         </div>
 
@@ -100,12 +91,8 @@ export function HomePage({ onPageChange }: HomePageProps) {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <feature.icon className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  {feature.description}
-                </p>
+                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-600 text-sm">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -122,12 +109,11 @@ export function HomePage({ onPageChange }: HomePageProps) {
                   Our Vision
                 </h3>
                 <p className="text-gray-700">
-                  A cooperative environment of medical industry,
-                  regulatory authorities, and medical
-                  professionals across Europe. We all have the
-                  ultimate goal of advanced, effective, and safe
-                  medical capabilities to better care for our
-                  corner of the world.
+                  A cooperative environment of medical industry, regulatory
+                  authorities, and medical professionals across Europe. We all
+                  have the ultimate goal of advanced, effective, and safe
+                  medical capabilities to better care for our corner of the
+                  world.
                 </p>
               </CardContent>
             </Card>
@@ -138,11 +124,9 @@ export function HomePage({ onPageChange }: HomePageProps) {
                   Our Mission
                 </h3>
                 <p className="text-gray-700">
-                  To bring technology, research, and
-                  capabilities to the medical communities we
-                  serve. You strive to develop, physicians
-                  strive to explore, we will bring you both
-                  together.
+                  To bring technology, research, and capabilities to the medical
+                  communities we serve. You strive to develop, physicians strive
+                  to explore, we will bring you both together.
                 </p>
               </CardContent>
             </Card>
@@ -153,11 +137,10 @@ export function HomePage({ onPageChange }: HomePageProps) {
                   Our Goal
                 </h3>
                 <p className="text-gray-700">
-                  To be the eastern pillar of the bridge to
-                  Europe, to enable a cooperative environment of
-                  clinical research for the mutual benefit of
-                  medical development companies, investigators,
-                  and the medical community.
+                  To be the eastern pillar of the bridge to Europe, to enable a
+                  cooperative environment of clinical research for the mutual
+                  benefit of medical development companies, investigators, and
+                  the medical community.
                 </p>
               </CardContent>
             </Card>
@@ -166,15 +149,14 @@ export function HomePage({ onPageChange }: HomePageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative bg-gradient-to-r from-primary to-primary/80 text-white py-16">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
-            The opportunities are vast, and this is where we
-            live.
+            The opportunities are vast, and this is where we live.
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Your success is our success. Please consider Bridge
-            Medical to be part of your organization.
+            Your success is our success. Please consider Bridge Medical to be
+            part of your organization.
           </p>
           <Button
             size="lg"
