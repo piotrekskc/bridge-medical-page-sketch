@@ -7,7 +7,7 @@ import { Label } from "./ui/label";
 
 export function ContactPage() {
   return (
-    <div className="space-y-16 py-8">
+    <div className="space-y-16">
       {/* Hero Banner */}
       <section className="relative bg-gradient-to-r from-primary to-primary/80 text-white py-16">
         <div className="absolute inset-0 bg-black/10"></div>

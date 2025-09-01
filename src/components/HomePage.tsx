@@ -51,18 +51,20 @@ export function HomePage({ onPageChange }: HomePageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-blue-600 hover:bg-gray-100"
+              className="bg-white text-blue-600 hover:bg-blue-50 font-semibold shadow-md flex items-center justify-center gap-2"
               onClick={() => onPageChange("services")}
             >
-              Our Services
+              <Shield className="mr-2" size={20} />
+              Explore Our Services
               <ArrowRight className="ml-2" size={20} />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-blue-600 hover:bg-gray-100"
+              className="border-white text-blue-600 hover:bg-blue-50 font-semibold shadow-md flex items-center justify-center gap-2"
               onClick={() => onPageChange("contact")}
             >
+              <Users className="mr-2" size={20} />
               Contact Us
             </Button>
           </div>
