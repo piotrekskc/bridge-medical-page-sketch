@@ -161,7 +161,18 @@ Marek received an MD from Warsaw Medical University, following 1st and 2nd degre
 
           <div className="space-y-8">
             {teamMembers.map((member) => (
-              <Card key={member.id} className="overflow-hidden">
+              <Card
+                key={member.id}
+                className="overflow-hidden cursor-pointer"
+                onClick={() => toggleMember(member.id)}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    toggleMember(member.id);
+                  }
+                }}
+                aria-expanded={expandedMember === member.id}
+              >
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-6">
@@ -215,8 +226,9 @@ Marek received an MD from Warsaw Medical University, following 1st and 2nd degre
                     <Button
                       variant="ghost"
                       size="sm"
-                      onClick={() => toggleMember(member.id)}
-                      className="ml-4 flex-shrink-0"
+                      // Remove onClick from button, handled by card
+                      className="ml-4 flex-shrink-0 pointer-events-none"
+                      tabIndex={-1}
                     >
                       {expandedMember === member.id ? (
                         <ChevronUp className="w-5 h-5" />

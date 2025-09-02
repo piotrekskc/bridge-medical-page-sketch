@@ -283,7 +283,18 @@ export function ServicesPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-6">
           {serviceCategories.map((category) => (
-            <Card key={category.id} className="overflow-hidden">
+            <Card
+              key={category.id}
+              className="overflow-hidden cursor-pointer"
+              onClick={() => toggleSection(category.id)}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  toggleSection(category.id);
+                }
+              }}
+              aria-expanded={expandedSection === category.id}
+            >
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
@@ -301,8 +312,9 @@ export function ServicesPage() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => toggleSection(category.id)}
-                    className="ml-4 flex-shrink-0"
+                    // Remove onClick from button, handled by card
+                    className="ml-4 flex-shrink-0 pointer-events-none"
+                    tabIndex={-1}
                   >
                     {expandedSection === category.id ? (
                       <ChevronUp className="w-5 h-5" />
