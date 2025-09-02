@@ -42,7 +42,9 @@ export default function App() {
     <div className="min-h-screen flex flex-col">
       <Navigation currentPage={currentPage} onPageChange={setCurrentPage} />
 
-      <main className="flex-1">{renderPage()}</main>
+      <main className="flex-1 ">{renderPage()}</main>
+      {/* Divider between main content and footer */}
+      <div className="w-full h-16 bg-white"></div>
 
       <Footer />
     </div>

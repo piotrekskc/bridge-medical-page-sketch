@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   CheckCircle,
   MapPin,
@@ -10,12 +11,15 @@ import {
   FileText,
   Lightbulb,
   Building,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 
 export function ClinicalResearchPolandPage() {
+  const [expanded, setExpanded] = useState(false);
   const keyAdvantages = [
     {
       icon: Users,
@@ -116,194 +120,121 @@ export function ClinicalResearchPolandPage() {
             the Czech Republic and Lithuania – a top choice for sponsors and
             CROs seeking optimal conditions for their research projects.
           </p>
-        </div>
-      </section>
-
-      {/* Key Advantages */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-8">
-          {keyAdvantages.map((advantage, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <advantage.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <Badge className="mb-2">{index + 1}</Badge>
-                    <CardTitle className="text-xl mb-3">
-                      {advantage.title}
-                    </CardTitle>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {advantage.description}
-                    </p>
-                  </div>
-                </div>
-              </CardHeader>
-              {advantage.details && (
-                <CardContent className="pt-0 pl-16">
-                  <div className="border-l-4 border-primary/20 pl-6">
-                    <p className="text-muted-foreground leading-relaxed">
-                      {advantage.details}
-                    </p>
-                  </div>
-                </CardContent>
+          <div className="mt-8 flex justify-center">
+            <Button
+              variant="outline"
+              className="border-white text-blue-600 hover:bg-blue-50 font-semibold shadow-md flex items-center justify-center gap-2"
+              size="lg"
+              onClick={() => setExpanded((v) => !v)}
+            >
+              {expanded ? "Hide Details" : "Learn More"}
+              {expanded ? (
+                <ChevronUp className="ml-2" />
+              ) : (
+                <ChevronDown className="ml-2" />
               )}
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Development and Modernization */}
-      <section className="bg-muted py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Development of the Clinical Trials Sector in Poland
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Direction: Modernization, Specialization, Global Role
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-3">
-                  <Building className="w-6 h-6 text-primary" />
-                  <span>Investment in Infrastructure and Competence</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Programs by the Medical Research Agency (ABM) and the National
-                  Centre for Research and Development (NCBR) have enabled Polish
-                  sites to receive tens of millions of PLN for infrastructure
-                  modernization, staff training, and new technology
-                  implementation. The "Development of the Polish Clinical
-                  Research Network" program has built infrastructure in over 40
-                  institutions across the country, including early-phase labs,
-                  eCRF systems, and local quality teams.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-3">
-                  <Award className="w-6 h-6 text-primary" />
-                  <span>
-                    Specialization in Niche and Advanced Therapeutic Areas
-                  </span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Polish sites increasingly serve as specialized reference
-                  centers for rare diseases, gene therapies, molecular oncology,
-                  and neurodegeneration. Medical universities in Wroclaw, Lodz,
-                  and Gdansk participate in international projects on CAR-T
-                  therapies, mitochondrial diseases, SMA, and ALS, offering
-                  expert knowledge and access to selected patient populations.
-                </p>
-              </CardContent>
-            </Card>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Medical Device Trials */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Card className="border-primary/20">
-          <CardHeader>
-            <CardTitle className="text-2xl text-center">
-              Clinical Trials of Medical Devices – Poland as a Central European
-              Leader
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <p className="text-muted-foreground leading-relaxed">
-              Following the implementation of the MDR (EU 2017/745), Poland
-              adapted its national procedures to the new requirements, becoming
-              one of the region's most active countries in clinical trials of
-              medical devices.
-            </p>
+      {expanded && (
+        <>
+          {/* Key Advantages */}
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="space-y-8">
+              {keyAdvantages.map((advantage, index) => (
+                <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <advantage.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <Badge className="mb-2">{index + 1}</Badge>
+                        <CardTitle className="text-xl mb-3">
+                          {advantage.title}
+                        </CardTitle>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {advantage.description}
+                        </p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  {advantage.details && (
+                    <CardContent className="pt-0 pl-16">
+                      <div className="border-l-4 border-primary/20 pl-6">
+                        <p className="text-muted-foreground leading-relaxed">
+                          {advantage.details}
+                        </p>
+                      </div>
+                    </CardContent>
+                  )}
+                </Card>
+              ))}
+            </div>
+          </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div>
-                <h4 className="font-semibold text-foreground mb-2">
-                  Mature Regulatory System
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  URPL and Bioethics Committees have introduced new
-                  MDR-compliant evaluation pathways, ensuring transparency and
-                  predictability. Poland has one of the shortest device trial
-                  approval times in the region.
+          {/* Development and Modernization */}
+          <section className="bg-muted py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-foreground mb-4">
+                  Development of the Clinical Trials Sector in Poland
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Direction: Modernization, Specialization, Global Role
                 </p>
               </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-2">
-                  Experience of Sites in MDR Implementation
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Trials involving nerve stimulation devices, CGM glucose
-                  monitors, and advanced vascular stents have been conducted in
-                  Poland in collaboration with companies from Germany, the USA,
-                  and Switzerland.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-2">
-                  CRO and Manufacturer Readiness
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Many Polish CROs have developed specialized medical device
-                  teams, offering comprehensive services from protocol design to
-                  MDR compliance oversight and documentation for notified
-                  bodies.
-                </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-3">
+                      <Building className="w-6 h-6 text-primary" />
+                      <span>Investment in Infrastructure and Competence</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Programs by the Medical Research Agency (ABM) and the
+                      National Centre for Research and Development (NCBR) have
+                      enabled Polish sites to receive tens of millions of PLN
+                      for infrastructure modernization, staff training, and new
+                      technology implementation. The "Development of the Polish
+                      Clinical Research Network" program has built
+                      infrastructure in over 40 institutions across the country,
+                      including early-phase labs, eCRF systems, and local
+                      quality teams.
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-3">
+                      <Award className="w-6 h-6 text-primary" />
+                      <span>
+                        Specialization in Niche and Advanced Therapeutic Areas
+                      </span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Polish sites increasingly serve as specialized reference
+                      centers for rare diseases, gene therapies, molecular
+                      oncology, and neurodegeneration. Medical universities in
+                      Wroclaw, Lodz, and Gdansk participate in international
+                      projects on CAR-T therapies, mitochondrial diseases, SMA,
+                      and ALS, offering expert knowledge and access to selected
+                      patient populations.
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
             </div>
-          </CardContent>
-        </Card>
-      </section>
-
-      {/* Summary */}
-      <section className="bg-primary text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Poland – A Strategic Spot on the European Clinical Trials Map
-          </h2>
-          <p className="text-lg mb-8 max-w-4xl mx-auto">
-            Thanks to favorable regulatory conditions, high-quality data,
-            experienced staff, and modern infrastructure, Poland is emerging as
-            a CEE leader and a strong competitor to Western markets. The sector
-            is gaining strength not only in innovative drug research but also in
-            trials of medical devices and next-generation therapies.
-          </p>
-          <p className="text-lg mb-8 max-w-4xl mx-auto">
-            For sponsors and CROs, this means one thing: Poland is the ideal
-            location for conducting clinical trials efficiently, in line with
-            international standards, and with a competitive time and cost
-            advantage.
-          </p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <Card className="border-primary/20">
-          <CardContent className="p-8">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              That is our research on Poland. Do you have another country you
-              have particular interest in?
-            </h3>
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
-              Contact us
-            </Button>
-          </CardContent>
-        </Card>
-      </section>
+          </section>
+        </>
+      )}
     </div>
   );
 }

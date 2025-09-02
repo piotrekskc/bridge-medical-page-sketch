@@ -1,6 +1,8 @@
 import { ArrowRight, Globe, Users, Shield, Target } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
+import { ClinicalResearchPolandPage } from "./ClinicalResearchPolandPage";
+import { PhasesClinicalResearchPage } from "./PhasesClinicalResearchPage";
 
 interface HomePageProps {
   onPageChange: (page: string) => void;
@@ -51,7 +53,8 @@ export function HomePage({ onPageChange }: HomePageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-blue-600 hover:bg-blue-50 font-semibold shadow-md flex items-center justify-center gap-2"
+              variant="outline"
+              className="border-white text-blue-600 hover:bg-blue-50 font-semibold shadow-md flex items-center justify-center gap-2"
               onClick={() => onPageChange("services")}
             >
               <Shield className="mr-2" size={20} />
@@ -150,26 +153,11 @@ export function HomePage({ onPageChange }: HomePageProps) {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative bg-gradient-to-r from-primary to-primary/80 text-white py-16">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            The opportunities are vast, and this is where we live.
-          </h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Your success is our success. Please consider Bridge Medical to be
-            part of your organization.
-          </p>
-          <Button
-            size="lg"
-            className="bg-white text-blue-600 hover:bg-gray-100"
-            onClick={() => onPageChange("contact")}
-          >
-            Get Started Today
-            <ArrowRight className="ml-2" size={20} />
-          </Button>
-        </div>
-      </section>
+      {/* Clinical Research Poland Page */}
+      <ClinicalResearchPolandPage />
+
+      {/* PhasesClinicalResearch */}
+      <PhasesClinicalResearchPage />
     </div>
   );
 }

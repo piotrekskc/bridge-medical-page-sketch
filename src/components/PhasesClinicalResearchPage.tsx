@@ -1,8 +1,12 @@
 import { FlaskConical, Search, Target, BarChart3 } from "lucide-react";
+import { Button } from "./ui/button";
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 
 export function PhasesClinicalResearchPage() {
+  const [expanded, setExpanded] = useState(false);
   const phases = [
     {
       phase: "Phase I",
@@ -78,80 +82,78 @@ export function PhasesClinicalResearchPage() {
             trials, the design, goals, and endpoints are typically adapted for
             the specific nature of the medical device.
           </p>
+          <div className="mt-8 flex justify-center">
+            <Button
+              variant="outline"
+              className="border-white text-blue-600 hover:bg-blue-50 font-semibold shadow-md flex items-center justify-center gap-2"
+              size="lg"
+              onClick={() => setExpanded((v) => !v)}
+            >
+              {expanded ? "Hide Details" : "Learn More"}
+              {expanded ? (
+                <ChevronUp className="ml-2" />
+              ) : (
+                <ChevronDown className="ml-2" />
+              )}
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Phases */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-8">
-          {phases.map((phase, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-start space-x-4">
-                  <div
-                    className={`w-16 h-16 rounded-lg ${phase.color} flex items-center justify-center flex-shrink-0`}
-                  >
-                    <phase.icon className="w-8 h-8" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <Badge variant="outline" className="text-sm">
-                        {phase.phase}
-                      </Badge>
-                      <CardTitle className="text-2xl">{phase.title}</CardTitle>
-                    </div>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      {phase.description}
-                    </p>
-                  </div>
-                </div>
-              </CardHeader>
-
-              <CardContent className="pt-0 pl-20">
-                <div className="space-y-3">
-                  {phase.points.map((point, pointIndex) => (
+      {expanded && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8">
+            {phases.map((phase, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex items-start space-x-4">
                     <div
-                      key={pointIndex}
-                      className="flex items-start space-x-3"
+                      className={`w-16 h-16 rounded-lg ${phase.color} flex items-center justify-center flex-shrink-0`}
                     >
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {point}
+                      <phase.icon className="w-8 h-8" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <Badge variant="outline" className="text-sm">
+                          {phase.phase}
+                        </Badge>
+                        <CardTitle className="text-2xl">
+                          {phase.title}
+                        </CardTitle>
+                      </div>
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        {phase.description}
                       </p>
                     </div>
-                  ))}
-                </div>
-
-                {phase.note && (
-                  <div className="mt-6 p-4 bg-accent rounded-lg border-l-4 border-primary">
-                    <p className="text-muted-foreground italic">{phase.note}</p>
                   </div>
-                )}
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Summary */}
-      <section className="bg-muted py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="border-none shadow-lg">
-            <CardContent className="p-8 text-center">
-              <h2 className="text-2xl font-bold text-foreground mb-6">
-                Comprehensive Clinical Development Support
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-                Each phase of clinical research serves a specific purpose in the
-                journey from concept to market. Our expertise spans all phases,
-                ensuring your medical device receives the comprehensive support
-                needed for successful regulatory approval and market entry
-                across European markets.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+                </CardHeader>
+                <CardContent className="pt-0 pl-20">
+                  <div className="space-y-3">
+                    {phase.points.map((point, pointIndex) => (
+                      <div
+                        key={pointIndex}
+                        className="flex items-start space-x-3"
+                      >
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {point}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  {phase.note && (
+                    <div className="mt-4 p-4 bg-orange-50 border-l-4 border-orange-400 rounded">
+                      <p className="text-sm text-orange-800 italic">
+                        {phase.note}
+                      </p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
