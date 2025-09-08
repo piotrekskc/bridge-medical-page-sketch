@@ -14,10 +14,11 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
 
   const navItems = [
     { id: "home", label: "Home" },
+    { id: "blog", label: "Medical News" },
     { id: "services", label: "Services" },
     { id: "about", label: "About" },
-    { id: "contact", label: "Contact Us" },
-    { id: "blog", label: "Blog" },
+    { id: "contact", label: "Contact" },
+
     {
       id: "partner-login",
       label: "Partner Login",
