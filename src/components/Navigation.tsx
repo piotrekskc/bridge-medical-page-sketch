@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 
 interface NavigationProps {
   currentPage: string;
@@ -18,7 +18,12 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
     { id: "about", label: "About" },
     { id: "contact", label: "Contact Us" },
     { id: "blog", label: "Blog" },
-    { id: "partner-login", label: "Partner Login" },
+    {
+      id: "partner-login",
+      label: "Partner Login",
+      external: true,
+      href: "https://files.bridgemedical.pl/index.php/login",
+    },
     { id: "faq", label: "FAQ" },
   ];
 
@@ -37,19 +42,31 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => onPageChange(item.id)}
-                  className={`px-3 py-2 text-sm font-medium transition-colors ${
-                    currentPage === item.id
-                      ? "text-blue-600 border-b-2 border-blue-600"
-                      : "text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-300"
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
+              {navItems.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`px-3 py-2 text-sm font-medium transition-colors text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-300`}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <button
+                    key={item.id}
+                    onClick={() => onPageChange(item.id)}
+                    className={`px-3 py-2 text-sm font-medium transition-colors ${
+                      currentPage === item.id
+                        ? "text-blue-600 border-b-2 border-blue-600"
+                        : "text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-300"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                )
+              )}
             </div>
           </div>
 
@@ -69,22 +86,35 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
         {isMobileMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    onPageChange(item.id);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className={`block px-3 py-2 text-base font-medium w-full text-left transition-colors ${
-                    currentPage === item.id
-                      ? "text-blue-600 bg-blue-50"
-                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
+              {navItems.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block px-3 py-2 text-base font-medium w-full text-left transition-colors text-gray-700 hover:text-blue-600 hover:bg-gray-50`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      onPageChange(item.id);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`block px-3 py-2 text-base font-medium w-full text-left transition-colors ${
+                      currentPage === item.id
+                        ? "text-blue-600 bg-blue-50"
+                        : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                )
+              )}
             </div>
           </div>
         )}
