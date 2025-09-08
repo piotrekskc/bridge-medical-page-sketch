@@ -74,12 +74,11 @@ export function HomePage({ onPageChange }: HomePageProps) {
           </div>
         </div>
       </section>
+      {/* PhasesClinicalResearch */}
+      <PhasesClinicalResearchPage />
 
       {/* Clinical Research Poland Page */}
       <ClinicalResearchPolandPage />
-
-      {/* PhasesClinicalResearch */}
-      <PhasesClinicalResearchPage />
     </div>
   );
 }

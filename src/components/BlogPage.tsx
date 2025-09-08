@@ -71,6 +71,124 @@ export function BlogPage() {
         city: "Warsaw",
       },
     },
+    {
+      id: "urn:li:ugcPost:1234567890123456789",
+      author: {
+        id: "urn:li:organization:987654321",
+        name: "Bridge Medical",
+        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQGeVzHUMroZgg/company-logo_200_200/company-logo_200_200/0/1716200174821?e=1759968000&v=beta&t=_0zXxkhx5U6Tl33WRw3ylTX_X46i5QjlyLPf2QmSRMY",
+        verified: true,
+        title: "Medical Consulting",
+      },
+      created: "2025-09-08T10:15:00Z",
+      lastModified: "2025-09-08T10:15:00Z",
+      content: {
+        text: "🧠​Lecanemab (Leqembi): A True Breakthrough in Alzheimer's Disease Treatment...\n\n🇪🇺​In April of this year, the medical world received exciting news: the European Medicines Agency (EMA) approved Lecanemab (marketed as Leqembi) for the treatment of early-stage Alzheimer's disease. This marks a historic moment, as it's the first therapy in the European Union approved to modify the course of the disease rather than just manage its symptoms.\n\n🔬​How does Lecanemab work?\n​Alzheimer's is closely linked to the buildup of beta-amyloid, a protein that forms toxic plaques and damages neurons in the brain. Many previous therapies targeted mature plaques. Lecanemab works differently. It is a monoclonal antibody that binds to and neutralizes beta-amyloid protofibrils—small, soluble, and highly toxic protein aggregates believed to be the primary cause of neuronal damage.\n​By removing these harmful substances early on, Lecanemab helps slow down disease progression, preserving the patient's cognitive functions. 🧠✨\n\n📈​Key Findings from Clinical Trials\n​The EMA's decision was based on the results of the Phase III clinical trial, Clarity AD, which showed that patients receiving Lecanemab had a 27% slower rate of cognitive decline compared to the placebo group. While it's not a cure, slowing the disease's progression can translate into months or even years of a better quality of life for patients and their families.\n\n🌍​What's Next?\n​The EMA's approval is just the beginning. The scientific and medical community now faces the challenge of implementing and monitoring the drug in real-world clinical practice. The availability of the drug in individual EU member states will depend on the decisions of local agencies.\n\n​References:\n​European Medicines Agency (EMA) - Leqembi Approval Information: https://lnkd.in/diMNB3Td\n​Article in The New England Journal of Medicine (NEJM) on the Clarity AD trial: https://lnkd.in/eVVdG8GR\n​",
+        media: [
+          {
+            type: "IMAGE",
+            url: "https://media.licdn.com/dms/image/v2/D4D22AQGNw98CPdUobA/feedshare-shrink_800/B4DZkO6AXzH4Ak-/0/1756891712814?e=1759968000&v=beta&t=yrF8i9fa2f2Rn-HrzkC1DZuWf_g326lPJ6v1h61NL10",
+            alt: "Lecanemab illustration",
+          },
+        ],
+        links: [
+          {
+            url: "https://lnkd.in/diMNB3Td",
+            title: "EMA Approval Information",
+          },
+          {
+            url: "https://lnkd.in/eVVdG8GR",
+            title: "NEJM Clarity AD trial",
+          },
+        ],
+        hashtags: [
+          "Lecanemab",
+          "Leqembi",
+          "AlzheimersDisease",
+          "Neurology",
+          "EMA",
+          "Breakthrough",
+          "Medicine",
+          "ClinicalTrials",
+          "BridgeMedical",
+        ],
+      },
+      visibility: "PUBLIC",
+      permalink:
+        "https://www.linkedin.com/posts/bridge-medical-paul-barratt_lecanemab-leqembi-alzheimersdisease-activity-7368991195114483714-l1Mh/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF6S1E8BDWSdo5lvhJ08mgXomnkB1L5_HSk",
+      engagement: {
+        likes: 120,
+        comments: 15,
+        shares: 8,
+        views: 2500,
+      },
+      comments: [],
+      sponsored: false,
+      language: "en",
+      geo: {
+        country: "PL",
+        city: "Warsaw",
+      },
+    },
+    {
+      id: "urn:li:ugcPost:1234567890123456789",
+      author: {
+        id: "urn:li:organization:987654321",
+        name: "Bridge Medical",
+        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQGeVzHUMroZgg/company-logo_200_200/company-logo_200_200/0/1716200174821?e=1759968000&v=beta&t=_0zXxkhx5U6Tl33WRw3ylTX_X46i5QjlyLPf2QmSRMY",
+        verified: true,
+        title: "Medical Consulting",
+      },
+      created: "2025-09-08T10:15:00Z",
+      lastModified: "2025-09-08T10:15:00Z",
+      content: {
+        text: "🧠​Lecanemab (Leqembi): A True Breakthrough in Alzheimer's Disease Treatment...\n\n🇪🇺​In April of this year, the medical world received exciting news: the European Medicines Agency (EMA) approved Lecanemab (marketed as Leqembi) for the treatment of early-stage Alzheimer's disease. This marks a historic moment, as it's the first therapy in the European Union approved to modify the course of the disease rather than just manage its symptoms.\n\n🔬​How does Lecanemab work?\n​Alzheimer's is closely linked to the buildup of beta-amyloid, a protein that forms toxic plaques and damages neurons in the brain. Many previous therapies targeted mature plaques. Lecanemab works differently. It is a monoclonal antibody that binds to and neutralizes beta-amyloid protofibrils—small, soluble, and highly toxic protein aggregates believed to be the primary cause of neuronal damage.\n​By removing these harmful substances early on, Lecanemab helps slow down disease progression, preserving the patient's cognitive functions. 🧠✨\n\n📈​Key Findings from Clinical Trials\n​The EMA's decision was based on the results of the Phase III clinical trial, Clarity AD, which showed that patients receiving Lecanemab had a 27% slower rate of cognitive decline compared to the placebo group. While it's not a cure, slowing the disease's progression can translate into months or even years of a better quality of life for patients and their families.\n\n🌍​What's Next?\n​The EMA's approval is just the beginning. The scientific and medical community now faces the challenge of implementing and monitoring the drug in real-world clinical practice. The availability of the drug in individual EU member states will depend on the decisions of local agencies.\n\n​References:\n​European Medicines Agency (EMA) - Leqembi Approval Information: https://lnkd.in/diMNB3Td\n​Article in The New England Journal of Medicine (NEJM) on the Clarity AD trial: https://lnkd.in/eVVdG8GR\n​",
+        media: [
+          {
+            type: "IMAGE",
+            url: "https://media.licdn.com/dms/image/v2/D4D22AQGNw98CPdUobA/feedshare-shrink_800/B4DZkO6AXzH4Ak-/0/1756891712814?e=1759968000&v=beta&t=yrF8i9fa2f2Rn-HrzkC1DZuWf_g326lPJ6v1h61NL10",
+            alt: "Lecanemab illustration",
+          },
+        ],
+        links: [
+          {
+            url: "https://lnkd.in/diMNB3Td",
+            title: "EMA Approval Information",
+          },
+          {
+            url: "https://lnkd.in/eVVdG8GR",
+            title: "NEJM Clarity AD trial",
+          },
+        ],
+        hashtags: [
+          "Lecanemab",
+          "Leqembi",
+          "AlzheimersDisease",
+          "Neurology",
+          "EMA",
+          "Breakthrough",
+          "Medicine",
+          "ClinicalTrials",
+          "BridgeMedical",
+        ],
+      },
+      visibility: "PUBLIC",
+      permalink:
+        "https://www.linkedin.com/posts/bridge-medical-paul-barratt_lecanemab-leqembi-alzheimersdisease-activity-7368991195114483714-l1Mh/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF6S1E8BDWSdo5lvhJ08mgXomnkB1L5_HSk",
+      engagement: {
+        likes: 120,
+        comments: 15,
+        shares: 8,
+        views: 2500,
+      },
+      comments: [],
+      sponsored: false,
+      language: "en",
+      geo: {
+        country: "PL",
+        city: "Warsaw",
+      },
+    },
   ]);
 
   return (

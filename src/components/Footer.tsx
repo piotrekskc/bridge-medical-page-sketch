@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { Button } from "./ui/button";
 
 export function Footer() {
   return (
@@ -37,12 +38,20 @@ export function Footer() {
                   info@bridgemedical.pl
                 </a>
               </div>
-              <div className="flex items-center text-gray-300">
-                <Phone size={16} className="mr-2 flex-shrink-0" />
-                <span className="text-sm">
-                  Joanna Mieteń: (+48) 731-854-458
-                </span>
-              </div>
+              <Button
+                size="md"
+                variant="link"
+                className="rounded-full border border-gray-700 bg-gray-800 text-white hover:bg-blue-600 hover:text-white font-semibold shadow-none flex items-center justify-center gap-2 transition-colors duration-200"
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/company/bridge-medical-paul-barratt/",
+                    "_blank"
+                  )
+                }
+              >
+                <Linkedin className="mr-2" size={20} />
+                Find us on LinkedIn
+              </Button>
             </div>
           </div>
 

@@ -285,7 +285,11 @@ export function ServicesPage() {
           {serviceCategories.map((category) => (
             <Card
               key={category.id}
-              className="overflow-hidden cursor-pointer"
+              className={`overflow-hidden cursor-pointer border-5 border-primary/40 ${
+                expandedSection === category.id
+                  ? "shadow-xl border-primary"
+                  : "shadow-sm"
+              }`}
               onClick={() => toggleSection(category.id)}
               tabIndex={0}
               onKeyDown={(e) => {
@@ -312,7 +316,6 @@ export function ServicesPage() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    // Remove onClick from button, handled by card
                     className="ml-4 flex-shrink-0 pointer-events-none"
                     tabIndex={-1}
                   >
@@ -329,12 +332,12 @@ export function ServicesPage() {
               </CardHeader>
 
               {expandedSection === category.id && (
-                <CardContent className="pt-0">
+                <CardContent className="pt-0 bg-primary/5 rounded-b-lg">
                   <div className="space-y-6">
                     {category.services.map((service, index) => (
                       <div
                         key={index}
-                        className="border-l-4 border-primary/20 pl-6 py-2"
+                        className="border-l-4 border-primary pl-6 py-2 bg-white rounded shadow-sm"
                       >
                         <h4 className="font-semibold text-foreground mb-2">
                           {service.title}

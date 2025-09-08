@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Mail, Phone, MapPin, User } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
@@ -6,6 +7,59 @@ import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 
 export function ContactPage() {
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus(null);
+    try {
+      const res = await fetch("/php/send-contact.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("Your message has been sent successfully.");
+        setForm({
+          firstName: "",
+          lastName: "",
+          email: "",
+          company: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setStatus(
+          "There was an error sending your message. Please try again later."
+        );
+      }
+    } catch {
+      setStatus(
+        "There was an error sending your message. Please try again later."
+      );
+    }
+    setLoading(false);
+  };
+
   return (
     <div className="space-y-16">
       {/* Hero Banner */}
@@ -54,43 +108,6 @@ export function ContactPage() {
               </CardContent>
             </Card>
 
-            {/* Project Manager Contact */}
-            <Card className="border-primary/20">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-3">
-                  <User className="w-6 h-6 text-primary" />
-                  <span>Project Manager</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-foreground">
-                    Joanna Mieteń
-                  </h4>
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-3">
-                      <Phone className="w-5 h-5 text-muted-foreground" />
-                      <a
-                        href="tel:+48731854458"
-                        className="text-primary hover:underline"
-                      >
-                        PL (+48) 731-854-458
-                      </a>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Mail className="w-5 h-5 text-muted-foreground" />
-                      <a
-                        href="mailto:jmieten@bridgemedical.pl"
-                        className="text-primary hover:underline"
-                      >
-                        jmieten@bridgemedical.pl
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
             {/* Location Info */}
             <Card className="bg-muted border-none">
               <CardContent className="p-6">
@@ -118,15 +135,41 @@ export function ContactPage() {
               </p>
             </CardHeader>
             <CardContent>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field (hidden from users) */}
+                <div className="absolute left-[-9999px] w-0 h-0 overflow-hidden">
+                  <label htmlFor="company">Company</label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={form.company}
+                    onChange={handleChange}
+                    autoComplete="off"
+                    tabIndex={-1}
+                  />
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Your first name" />
+                    <Input
+                      id="firstName"
+                      name="firstName"
+                      value={form.firstName}
+                      onChange={handleChange}
+                      placeholder="Your first name"
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Your last name" />
+                    <Input
+                      id="lastName"
+                      name="lastName"
+                      value={form.lastName}
+                      onChange={handleChange}
+                      placeholder="Your last name"
+                    />
                   </div>
                 </div>
 
@@ -134,25 +177,32 @@ export function ContactPage() {
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
+                    value={form.email}
+                    onChange={handleChange}
                     placeholder="your.email@company.com"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="company">Company</Label>
-                  <Input id="company" placeholder="Your company name" />
-                </div>
-
-                <div className="space-y-2">
                   <Label htmlFor="phone">Phone (optional)</Label>
-                  <Input id="phone" placeholder="+48 123 456 789" />
+                  <Input
+                    id="phone"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="+48 123 456 789"
+                  />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="subject">Subject</Label>
                   <Input
                     id="subject"
+                    name="subject"
+                    value={form.subject}
+                    onChange={handleChange}
                     placeholder="Brief description of your inquiry"
                   />
                 </div>
@@ -161,14 +211,26 @@ export function ContactPage() {
                   <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"
+                    name="message"
+                    value={form.message}
+                    onChange={handleChange}
                     placeholder="Tell us about your clinical research project, timeline, and how we can help..."
                     rows={6}
                   />
                 </div>
 
-                <Button className="w-full bg-primary hover:bg-primary/90">
-                  Send Message
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-primary hover:bg-primary/90"
+                >
+                  {loading ? "Sending..." : "Send Message"}
                 </Button>
+                {status && (
+                  <div className="text-center text-sm mt-2 text-primary">
+                    {status}
+                  </div>
+                )}
               </form>
             </CardContent>
           </Card>
