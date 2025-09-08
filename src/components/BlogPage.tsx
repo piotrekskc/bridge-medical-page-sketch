@@ -195,52 +195,6 @@ export function BlogPage() {
                     </div>
                   </div>
                 </div>
-
-                {/* Action Buttons */}
-                <div className="px-4 py-2 border-t border-gray-100">
-                  <div className="flex items-center justify-around">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="flex-1 text-gray-600 hover:bg-gray-50"
-                      onClick={() => window.open(post.permalink, "_blank")}
-                    >
-                      <ThumbsUp className="w-4 h-4 mr-2" />
-                      Like
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="flex-1 text-gray-600 hover:bg-gray-50"
-                      onClick={() => window.open(post.permalink, "_blank")}
-                    >
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      Comment
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="flex-1 text-gray-600 hover:bg-gray-50"
-                      onClick={() => window.open(post.permalink, "_blank")}
-                    >
-                      <Share2 className="w-4 h-4 mr-2" />
-                      Share
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Comments */}
-                {/* {post.comments && post.comments.length > 0 && (
-                  <div className="px-4 py-2 border-t border-gray-100">
-                    <div className="text-xs text-gray-500 mb-2">Comments:</div>
-                    {post.comments.map((comment) => (
-                      <div key={comment.id} className="mb-2">
-                        <span className="font-semibold">Comment:</span>{" "}
-                        {comment.text}
-                      </div>
-                    ))}
-                  </div>
-                )} */}
               </CardContent>
             </Card>
           ))
