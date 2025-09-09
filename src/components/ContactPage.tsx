@@ -29,14 +29,23 @@ export function ContactPage() {
     e.preventDefault();
     setLoading(true);
     setStatus(null);
+
+    // Prepare form data for POST
+    const formData = new FormData();
+    formData.append("to", form.email);
+    formData.append("name", `${form.firstName} ${form.lastName}`);
+    formData.append("company", form.company); // honeypot
+    formData.append("phone", form.phone);
+    formData.append("subject", form.subject);
+    formData.append("message", form.message);
+
     try {
-      const res = await fetch("/php/send-contact.php", {
+      const res = await fetch("/php/_mailer.php", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: formData,
       });
       const data = await res.json();
-      if (data.success) {
+      if (!data.error) {
         setStatus("Your message has been sent successfully.");
         setForm({
           firstName: "",
@@ -48,9 +57,7 @@ export function ContactPage() {
           message: "",
         });
       } else {
-        setStatus(
-          "There was an error sending your message. Please try again later."
-        );
+        setStatus("Error: " + (data.info?.replace(/<[^>]+>/g, "") || ""));
       }
     } catch {
       setStatus(
