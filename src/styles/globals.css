@@ -1,7 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
-
+/* Place in your global CSS file */
+[data-widget-id="299805"] {
+  --tb-font: "Your Font Name", Arial, sans-serif;
+  --tb-font-size: 16px;
+  --tb-font-weight: 500;
+  --tb-color: #222222;
+  --tb-bg-color: #f8f9fa;
+}
 :root {
   --font-size: 14px;
   --background: #ffffff;
@@ -18,7 +25,7 @@
   --muted-foreground: #6c757d;
   --accent: #f1f8ff;
   --accent-foreground: #002233;
-  --destructive: #CC0033;
+  --destructive: #cc0033;
   --destructive-foreground: #ffffff;
   --border: rgba(0, 0, 0, 0.1);
   --input: transparent;
@@ -128,7 +135,8 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Encode Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: "Encode Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, sans-serif;
   }
 }
 

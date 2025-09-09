@@ -210,23 +210,21 @@ export function FAQPage() {
                   const uniqueId = `${categoryIndex}-${faqIndex}`;
                   return (
                     <Card key={uniqueId} className="overflow-hidden">
-                      <CardHeader className="pb-4">
+                      <CardHeader
+                        className="pb-4 cursor-pointer"
+                        onClick={() => toggleFAQ(uniqueId)}
+                      >
                         <div className="flex items-center justify-between">
                           <CardTitle className="text-lg pr-4">
                             {faq.question}
                           </CardTitle>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => toggleFAQ(uniqueId)}
-                            className="flex-shrink-0"
-                          >
+                          <span className="flex-shrink-0">
                             {expandedFAQ === uniqueId ? (
                               <ChevronUp className="w-5 h-5" />
                             ) : (
                               <ChevronDown className="w-5 h-5" />
                             )}
-                          </Button>
+                          </span>
                         </div>
                       </CardHeader>
 
