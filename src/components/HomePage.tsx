@@ -1,6 +1,15 @@
-import { ArrowRight, Globe, Users, Linkedin, Target } from "lucide-react";
+import {
+  ArrowRight,
+  Globe,
+  Users,
+  Linkedin,
+  Target,
+  FileText,
+  FlaskConical,
+  Gavel,
+} from "lucide-react";
 import { Button } from "./ui/button";
-import { Card, CardContent } from "./ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { ClinicalResearchPolandPage } from "./ClinicalResearchPolandPage";
 import { PhasesClinicalResearchPage } from "./PhasesClinicalResearchPage";
 
@@ -74,6 +83,61 @@ export function HomePage({ onPageChange }: HomePageProps) {
           </div>
         </div>
       </section>
+      <header className="text-center space-y-6 pt-12">
+        <div className="inline-block bg-primary/10 p-4 rounded-full">
+          <FlaskConical className="text-primary" size={48} />
+        </div>
+        <h1 className="text-5xl font-extrabold text-primary tracking-tight">
+          Clinical Research of Medical Devices
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          Your comprehensive guide to understanding the process, potential, and
+          pathways to success in the European market.
+        </p>
+      </header>
+
+      <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <CardHeader className="flex flex-row items-center gap-4 bg-muted/30">
+          <Gavel className="text-blue-600" size={32} />
+          <CardTitle className="text-2xl font-bold">
+            What is Clinical Research?
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-lg text-muted-foreground pt-6">
+          <p>
+            Clinical research of medical devices are carefully planned
+            scientific studies conducted to evaluate the safety, performance,
+            and clinical benefit of a medical device when used as intended.
+            These studies are a fundamental step in the regulatory approval
+            process and help ensure that devices placed on the market are safe
+            for patients and effective in clinical use.
+          </p>
+          <p>
+            Unlike pharmaceuticals, medical devices often operate through
+            physical, mechanical, or software-based mechanisms, requiring a
+            different approach to clinical validation. Each study is tailored to
+            the device’s risk class, design, and intended purpose.
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <CardHeader className="flex flex-row items-center gap-4 bg-muted/30">
+          <FileText className="text-green-600" size={32} />
+          <CardTitle className="text-2xl font-bold">
+            Classification and Regulatory Context
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-lg text-muted-foreground pt-6">
+          <p>
+            Under the EU Medical Device Regulation (MDR) 2017/745, clinical
+            investigations must comply with strict legal, scientific, and
+            ethical requirements. Devices are classified by risk level (Class I,
+            IIa, IIb, III), which determines the extent of required clinical
+            evidence and oversight.
+          </p>
+        </CardContent>
+      </Card>
       {/* PhasesClinicalResearch */}
       <PhasesClinicalResearchPage />
 
